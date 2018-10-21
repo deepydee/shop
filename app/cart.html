@@ -7,15 +7,36 @@
 	<title>Интернет-магазин. Корзина</title>
 </head>
 <body data-page="cart">
-	<nav>
-		<ul class="nav nav-pills">
-			<li><a href="#">Каталог</a></li>
-			<li><a href="#">Каталог с фильтрами</a></li>
-			<li><a href="#">Каталог с пагинацией</a></li>
-			<li><a href="#">Сравнение товаров</a></li>
-			<li><a href="#">Корзина</a></li>
-			<li><a href="#">Оформление заказа</a></li>
-		</ul>
-	</nav>
+	<div class="container">
+		<nav>
+			<ul class="nav nav-pills">
+				<li><a href="#">Каталог</a></li>
+				<li><a href="#">Каталог с фильтрами</a></li>
+				<li><a href="#">Каталог с пагинацией</a></li>
+				<li><a href="#">Сравнение товаров</a></li>
+				<li><a href="#">Корзина</a></li>
+				<li><a href="#">Оформление заказа</a></li>
+			</ul>
+		</nav>
+
+		<div class="table-responsive">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+							<th>Артикул</th>
+							<th>Название</th>
+							<th>Цена</th>
+							<th>Количество</th>
+							<th>Сумма</th>
+							<th></th>
+					</tr>
+				</thead>
+				<tbody id="cart">
+						<tr><td colspan="6"><img src="img/loading.gif" alt="" /></td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div>Итого: <span id="total-cart-summa">65000</span> руб.</div>
+	</div>
 </body>
 </html>
