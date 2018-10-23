@@ -28,5 +28,11 @@
         "name": "Телевизор SUPRA",
         "price": "19000",
         "img": "img/cars/tv_supra.jpg"
-    }
+		},
+		{
+				"id": "6",
+				"name": "Телефон BQ",
+				"price": "2000",
+				"img": "img/cars/phone_bq.jpg"
+		}
 ]
