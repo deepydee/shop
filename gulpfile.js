@@ -15,18 +15,6 @@ var gulp          = require('gulp'),
 		notify        = require("gulp-notify"),
 		rsync         = require('gulp-rsync');
 
-/* gulp.task('browser-sync', function() {
-	browsersync({
-		server: {
-			baseDir: 'app'
-		},
-		notify: false,
-		// open: false,
-		// tunnel: true,
-		// tunnel: "projectname", //Demonstration page: http://projectname.localtunnel.me
-	})
-}); */
-
 gulp.task('browser-sync', function() {
 	browsersync.init({
 		proxy: "shop.loc",
@@ -50,6 +38,8 @@ gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/libs/jquery-ui/jquery-ui.min.js',
+		'app/libs/jquery.cookie/jquery.cookie.js',
+		'app/libs/underscore/underscore-min.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
@@ -108,7 +98,7 @@ gulp.task('build', ['removedist', 'imagemin', 'styles', 'js'], function() {
 
 gulp.task('watch', ['styles', 'js', 'browser-sync'], function() {
 	gulp.watch('app/'+syntax+'/**/*.'+syntax+'', ['styles']);
-	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
+	gulp.watch(['libs/**/*.js', 'app/js/**/*.js'], ['js']);
 	gulp.watch('app/*.php', browsersync.reload);
 	gulp.watch('app/*.html', browsersync.reload);
 });

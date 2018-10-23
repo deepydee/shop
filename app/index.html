@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Интернет-магазин. Интернет-магазин. Главная</title>
+	<meta name="description" content="Тестовый интернет-магазин. Главная страница с каталогом">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+	<!-- Template Basic Images End -->
+	
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#161616">
+	<!-- Custom Browsers Color End -->
+</head>
+<body data-page="catalog">
+
+	<div class="container">
+			<h1>Каталог. Интернет-магазин</h1>
+			<nav>
+				<ul class="nav nav-pills">
+					<li class="nav-item"><a class="nav-link active" href="index.html">Каталог</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Каталог с фильтрами</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Каталог с пагинацией</a></li>
+					<li id="compare-tab" class="nav-item"><a class="nav-link" href="#">Сравнение товаров<span class="badge"></span></a></li>
+					<li class="nav-item"><a rel="nofollow" class="nav-link" href="cart.html">Корзина<span id="total-cart-count" class="badge"></span></a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Оформление заказа</a></li>
+				</ul>
+			</nav>
+			<ul id="goods" class="list-unstyled">
+				<img src="img/loading.gif" alt="">
+			</ul>
+			<p id="test">Items:</p>
+	</div>
+
+	<script id="catalog-template" type="text/template">
+		<% _.each(goods, function(good) { %>
+				<li class="good-item row">
+						<div class="col-md-4">
+								<img class="good-item__img" src="<%- good.img %>" />
+						</div>
+						<div class="col-md-8">
+								<div class="good-item__id">Артикул <%= good.id %></div>
+								<div class="good-item__name"><%- good.name %></div>
+								<div class="good-item__price"><%= good.price %> руб.</div>
+								<button 
+										class="good-item__btn-add btn btn-info btn-sm js-add-to-cart"
+										data-id="<%= good.id %>"
+										data-name="<%- good.name %>"
+										data-price="<%= good.price %>"
+								>Добавить в корзину</button>
+						</div>
+				</li>
+		<% }); %>
+	</script>
+
+	<link rel="stylesheet" href="css/main.min.css">
+	<script src="js/scripts.min.js"></script>
+</body>
+</html>

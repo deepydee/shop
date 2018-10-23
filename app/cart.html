@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
 	<title>Интернет-магазин. Корзина</title>
+	<meta name="description" content="Тестовый интернет-магазин. Корзина, редактирование и переход на оформление заказа">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+	<!-- Template Basic Images End -->
+	
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#161616">
+	<!-- Custom Browsers Color End -->
 </head>
 <body data-page="cart">
 	<div class="container">
+		<h1>Корзина. Интернет-магазин</h1>
 		<nav>
 			<ul class="nav nav-pills">
-				<li><a href="#">Каталог</a></li>
-				<li><a href="#">Каталог с фильтрами</a></li>
-				<li><a href="#">Каталог с пагинацией</a></li>
-				<li><a href="#">Сравнение товаров</a></li>
-				<li><a href="#">Корзина</a></li>
-				<li><a href="#">Оформление заказа</a></li>
+				<li class="nav-item"><a class="nav-link" href="index.html">Каталог</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Каталог с фильтрами</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Каталог с пагинацией</a></li>
+				<li id="compare-tab" class="nav-item"><a class="nav-link" href="#">Сравнение товаров<span class="badge"></span></a></li>
+				<li class="nav-item"><a rel="nofollow" class="nav-link active" href="cart.html">Корзина<span id="total-cart-count" class="badge"></span></a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Оформление заказа</a></li>
 			</ul>
 		</nav>
 
@@ -37,6 +54,10 @@
 			</table>
 		</div>
 		<div>Итого: <span id="total-cart-summa">64000</span> руб.</div>
+		<a class="btn btn-info" href="order.html">Оформить заказ</a>
 	</div>
+
+	<link rel="stylesheet" href="css/main.min.css">
+	<script src="js/scripts.min.js"></script>
 </body>
 </html>
