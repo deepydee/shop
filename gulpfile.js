@@ -99,7 +99,7 @@ gulp.task('build', ['removedist', 'imagemin', 'styles', 'js'], function() {
 gulp.task('watch', ['styles', 'js', 'browser-sync'], function() {
 	gulp.watch('app/'+syntax+'/**/*.'+syntax+'', ['styles']);
 	gulp.watch(['libs/**/*.js', 'app/js/**/*.js'], ['js']);
-	gulp.watch('app/*.php', browsersync.reload);
+	gulp.watch('app/**/*.php', browsersync.reload);
 	gulp.watch('app/*.html', browsersync.reload);
 });
 
