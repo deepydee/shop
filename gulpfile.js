@@ -40,6 +40,9 @@ gulp.task('js', function() {
 		'app/libs/jquery-ui/jquery-ui.min.js',
 		'app/libs/jquery.cookie/jquery.cookie.js',
 		'app/libs/underscore/underscore-min.js',
+		'app/js/modules/catalog.js',
+		'app/js/modules/cart.js',
+		'app/js/modules/order.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
