@@ -43,6 +43,7 @@ gulp.task('js', function() {
 		'app/js/modules/catalog.js',
 		'app/js/modules/cart.js',
 		'app/js/modules/order.js',
+		'app/js/modules/catalogDB.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))

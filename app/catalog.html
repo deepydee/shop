@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Интернет-магазин. Интернет-магазин. Каталог</title>
+	<meta name="description" content="Тестовый интернет-магазин. Главная страница с каталогом">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+	<!-- Template Basic Images End -->
+	
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#161616">
+	<!-- Custom Browsers Color End -->
+</head>
+
+	<body data-page="catalogDB">
+
+		<div class="container">
+
+				<h2>Интернет-магазин. Фильтры в каталоге</h2>
+				<nav>
+					<ul class="nav nav-pills">
+						<li class="nav-item"><a rel="nofollow" class="nav-link" href="index.html">Каталог</a></li>
+						<li class="nav-item"><a rel="nofollow" class="nav-link active" href="catalog.html">Каталог с фильтрами</a></li>
+						<li class="nav-item"><a rel="nofollow" class="nav-link" href="#">Каталог с пагинацией</a></li>
+						<li id="compare-tab" class="nav-item"><a rel="nofollow" class="nav-link" href="#">Сравнение товаров<span class="badge"></span></a></li>
+						<li class="nav-item"><a rel="nofollow" class="nav-link" href="cart.html">Корзина<span id="total-cart-count" class="badge"></span></a></li>
+						<li class="nav-item"><a class="nav-link" href="order.html">Оформление заказа</a></li>
+					</ul>
+				</nav>
+				<br>
+				<div id="filters" class="col-md-12">
+					<div class="btn-group">
+						<button type="button" data-category="0" class="btn btn-secondary active js-category">Все категории</button>
+						<button type="button" data-category="1" class="btn btn-secondary js-category">Ноутбуки</button>
+						<button type="button" data-category="2" class="btn btn-secondary js-category">Смартфоны</button>
+						<button type="button" data-category="3" class="btn btn-secondary js-category">Видеокарты</button>
+					</div>
+					<br>
+					<br>
+					<form id="filters-form" class="row">
+						<div class="col-md-4">
+							<h4>Бренды</h4>
+							<div id="brands">
+								<div class="checkbox"><label><input type="checkbox" name="brands[]" value="1"> Apple</label></div>
+								<div class="checkbox"><label><input type="checkbox" name="brands[]" value="2"> Samsung</label></div>
+								<div class="checkbox"><label><input type="checkbox" name="brands[]" value="3"> Lenovo</label></div>
+								<div class="checkbox"><label><input type="checkbox" name="brands[]" value="4"> Что-то еще</label></div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h4>Фильтр по ценам</h4>
+							<div id="prices-label">0 - 0 руб.</div>
+							<br />
+							<input type="hidden" id="min-price" name="min_price" value="5000">
+							<input type="hidden" id="max-price" name="max_price" value="50000">
+							<div id="prices"></div>
+						</div>
+						<div class="col-md-4">
+							<h4>Сортировка</h4>
+							<br>
+							<select id="sort" name="sort" class="form-control">
+								<option value="price_asc">По цене, сначала дешевые</option>
+								<option value="price_desc">По цене, сначала дорогие</option>
+								<option value="rating_desc">По популярности</option>
+								<option value="good_asc">По названию, A-Z</option>
+								<option value="good_desc">По названию, Z-A</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<br>
+				<br>
+				<ul id="goods" class="col-md-12">
+						<img src="img/loading.gif" alt="" rel="nofollow">
+				</ul>
+		</div>
+
+	<script id="goods-template" type="text/template">
+		<% _.each(goods, function(item) { %>
+		<li class="small-good-item row">
+				<div class="col-md-2">
+						<img class="small-good-item__img" src="img/goods/<%= item.photo %>" />
+				</div>
+				<div class="col-md-10">
+						<div class="small-good-item__id">Артикул <%= item.good_id %></div>
+						<div class="small-good-item__name"><%- item.good %> (рейтинг <%= item.rating %>)</div>
+						<div class="small-good-item__brand">Бренд: <%- item.brand %></div>
+						<div class="small-good-item__price"><%= item.price %> руб.</div>
+						<button
+								class="small-good-item__btn-add btn btn-info btn-sm js-add-to-cart"
+								data-id="<%= item.good_id %>"
+								data-name="<%- item.good %>"
+								data-price="<%= item.price %>"
+						>Добавить в корзину</button>
+						<button
+								class="btn btn-link btn-sm js-add-to-compare"
+								data-id="<%= item.good_id %>"
+								data-category-id="<%= item.category_id %>"
+						>Добавить к сравнению</button>
+				</div>
+		</li>
+		<% }); %>
+	</script>
+
+	<script id="brands-template" type="text/template">
+		<% _.each(brands, function(item) { %>
+		<div class="checkbox"><label><input type="checkbox" name="brands[]" value="<%= item.id %>"> <%= item.brand %></label></div>
+		<% }); %>
+	</script>
+	
+		<link rel="stylesheet" href="css/main.min.css">
+		<script src="js/scripts.min.js"></script>
+	</body>
+</html>

@@ -42,6 +42,10 @@ $(function() {
 				catalog.init();
 				cart.init(optionsCatalog);
 			}
+			if (page === 'catalogDB') {
+				catalogDB.init();
+				cart.init(optionsCatalog);
+			}
 			if (page === 'cart') {
 				cart.init(optionsCart);
 			}
